@@ -7,7 +7,6 @@ const ProductMenu = () => {
   const [products, setProducts] = useState([]);
 
   const { firmId, firmName } = useParams();
-    
 
   const productHandler = async () => {
     try {
@@ -32,7 +31,9 @@ const ProductMenu = () => {
           return (
             <div className="productBox">
               <div>
-                <div><strong>{item.productName}</strong></div>
+                <div>
+                  <strong>{item.productName}</strong>
+                </div>
                 <div>₹{item.price}</div>
                 <div>{item.description}</div>
               </div>
