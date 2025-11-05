@@ -1,0 +1,41 @@
+/* Iframe-specific styles */
+
+/* Ensure the application fills the iframe properly */
+html.in-iframe,
+body.in-iframe {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+/* Remove any fixed positioning that might cause issues in iframe */
+.in-iframe #root {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Adjust scrolling behavior for iframe */
+.in-iframe {
+  scroll-behavior: smooth;
+}
+
+/* Ensure links work properly in iframe context */
+.in-iframe a[target="_blank"] {
+  /* External links should open in new tab */
+}
+
+/* Optional: Add visual indicator when in iframe (for development) */
+.in-iframe.dev-mode::before {
+  content: "Running in iframe";
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  font-size: 11px;
+  z-index: 9999;
+  border-radius: 0 0 0 4px;
+}

@@ -1,3 +1,15 @@
 
 
 node_modules/
+
+# Environment files (local overrides only)
+.env.local
+.env.*.local
+!.env.enterprise
+!.env.example
+dist/
+dist-ssr/
+
+# Build artifacts
+build/
+.vite/

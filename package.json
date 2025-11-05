@@ -5,9 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:enterprise": "vite --mode enterprise",
     "build": "vite build",
+    "build:enterprise": "vite build --mode enterprise",
+    "verify:enterprise": "bash scripts/verify-build.sh",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:enterprise": "vite preview --mode enterprise"
   },
   "dependencies": {
     "react": "^18.2.0",
