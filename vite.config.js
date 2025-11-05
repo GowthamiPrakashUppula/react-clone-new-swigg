@@ -15,15 +15,6 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 8000,
       host: true, // Allow external access
-      // Optional: Configure proxy for API calls if needed
-      proxy: {
-        // If your API is on a different domain, configure proxy here
-        // '/api': {
-        //   target: env.VITE_API_URL || 'https://backend-nodejs-suby.onrender.com',
-        //   changeOrigin: true,
-        //   rewrite: (path) => path.replace(/^\/api/, '')
-        // }
-      }
     },
     preview: {
       port: 8000,

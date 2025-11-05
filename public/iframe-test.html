@@ -190,7 +190,8 @@
 
         // Listen for messages from iframe
         window.addEventListener('message', (event) => {
-            // In production, validate event.origin
+            // NOTE: Origin validation disabled for testing. 
+            // In production, validate event.origin against allowed domains:
             // if (event.origin !== 'http://localhost:8000') return;
             
             console.log('Message from iframe:', event.data);

@@ -36,10 +36,14 @@ export const sendToParent = (message, targetOrigin = '*') => {
 };
 
 // Listen for messages from parent window
-export const listenToParent = (callback) => {
+export const listenToParent = (callback, allowedOrigins = null) => {
   const handler = (event) => {
-    // Validate origin if needed
-    // if (event.origin !== 'expected-origin') return;
+    // TODO: In production, enable origin validation for security
+    // Example: allowedOrigins = ['https://enterprise-uat.proximus.be', 'https://enterprise.proximus.be']
+    if (allowedOrigins && !allowedOrigins.includes(event.origin)) {
+      console.warn('Rejected message from unauthorized origin:', event.origin);
+      return;
+    }
     callback(event.data, event.origin);
   };
   
@@ -66,14 +70,6 @@ export const configureIframe = () => {
       // Add any iframe-specific initialization here
       notifyIframeReady();
     });
-    
-    // Prevent parent page navigation on link clicks if needed
-    // document.addEventListener('click', (e) => {
-    //   if (e.target.tagName === 'A' && e.target.target !== '_blank') {
-    //     e.preventDefault();
-    //     // Handle navigation within iframe
-    //   }
-    // });
   }
 };
 
