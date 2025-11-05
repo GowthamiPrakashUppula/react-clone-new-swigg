@@ -181,7 +181,17 @@
             const entry = document.createElement('div');
             entry.className = 'log-entry';
             const timestamp = new Date().toLocaleTimeString();
-            entry.innerHTML = `<span class="timestamp">[${timestamp}]</span> ${message}`;
+            
+            // Use textContent to prevent XSS
+            const timestampSpan = document.createElement('span');
+            timestampSpan.className = 'timestamp';
+            timestampSpan.textContent = `[${timestamp}] `;
+            
+            const messageSpan = document.createElement('span');
+            messageSpan.textContent = message;
+            
+            entry.appendChild(timestampSpan);
+            entry.appendChild(messageSpan);
             logEntries.appendChild(entry);
             
             // Auto-scroll to bottom
