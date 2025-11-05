@@ -1,3 +1,6 @@
-export const API_URL = "https://backend-nodejs-suby.onrender.com"
+import { getApiUrl } from '../config';
 
-// export const API_URL = "http://localhost:4000"
+// Use environment-based API URL
+export const API_URL = getApiUrl();
+
+// For local backend testing, set VITE_API_URL=http://localhost:4000 in .env.local
