@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 This application supports multiple tenants (Intra and Enterprise). 
 
-### Quick Start
+### 🚀 Quick Start
 
 ```bash
 # Install dependencies
@@ -20,28 +20,39 @@ npm install
 # Run in default mode (Intra tenant)
 npm run dev
 
-# Run in enterprise mode
+# Run in enterprise mode (for https://enterprise-uat.proximus.be/cam/)
 npm run dev:enterprise
 ```
 
-### Enterprise Local Setup
+### 🎯 Enterprise Deployment
 
-For detailed instructions on setting up and testing the enterprise tenant locally, see [ENTERPRISE_SETUP.md](./ENTERPRISE_SETUP.md).
+The CAM application is configured to run at: **`https://enterprise-uat.proximus.be/cam/`**
 
-This allows you to test your changes for `enterprise-uat.proximus.be/cam/` locally without deploying to UAT environment every time.
-
-### Environment Configuration
-
-Copy `.env.example` to `.env.local` and configure as needed:
-
+**Quick Deploy:**
 ```bash
-cp .env.example .env.local
+npm run build:enterprise    # Build for /cam/ route
+npm run verify:enterprise   # Verify build configuration
 ```
 
-For enterprise tenant testing:
+See [QUICKSTART.md](./QUICKSTART.md) for immediate access to enterprise route information.
+
+### 📚 Documentation
+
+- **[QUICKSTART.md](./QUICKSTART.md)** - Quick reference for accessing CAM at `/cam/` route
+- **[ENTERPRISE_SETUP.md](./ENTERPRISE_SETUP.md)** - Detailed local development setup
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Complete deployment guide
+
+### 🧪 Local Testing
+
+Test the enterprise route locally before deploying:
+
 ```bash
 cp .env.enterprise .env.local
 npm run dev:enterprise
+# Access at: http://localhost:8000/cam/
 ```
 
-Access at: `http://localhost:8000/cam/`
+Test in iframe (simulates enterprise portal):
+```
+http://localhost:8000/iframe-test.html
+```
