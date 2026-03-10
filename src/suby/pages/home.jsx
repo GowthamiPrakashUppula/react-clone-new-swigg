@@ -1,1 +1,9 @@
-ssh-keygen -t ed25519 -C "gowthamiguj@gmail.com"
+const HHome = () => {
+    return (
+        <div>
+            I am Home Page
+        </div>
+    )
+}
+
+export default HHome;
